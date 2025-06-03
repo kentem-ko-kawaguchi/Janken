@@ -1,2 +1,25 @@
 @charset "utf-8";
+main{
+  margin: 0 auto;
+  text-align: center;
+}
 
+#cpu,
+#player {
+  font-size: 3rem;        /* 大きな絵文字サイズ */
+  text-align: center;     /* 中央寄せ */
+  margin: 20px 0;         /* 上下の余白 */
+}
+
+table {
+  width: 300px;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+table td {
+  border: 1px solid #333;
+  padding: 10px;
+}
