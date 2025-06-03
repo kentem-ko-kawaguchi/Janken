@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "test": "jest --watchAll",
+    "test:coverage": "jest --coverage",
+    "build": "tsc",
+    "clean": "rm -rf dist"
+  }
+}
