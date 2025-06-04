@@ -29,12 +29,6 @@ export class View {
 
     //test
     this.jankenButton = document.getElementById("start")!;
-    this.jankenButton.addEventListener("click", () => {
-      this.jankenpon();
-    });
-  }
-  //test
-  public jankenpon(): void {
-    this.jankenButton.textContent = this.controller.callRandomHand();
+    this.controller.callRandomHand(this.jankenButton);
   }
 }

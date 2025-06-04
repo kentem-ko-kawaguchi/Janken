@@ -5,10 +5,11 @@ export class Controller {
 
   constructor() {
     this.model = new Model();
-
   }
   // test
-  public callRandomHand(){
-    return this.model.randomHand();
+  public callRandomHand(element: HTMLElement) {
+    element.addEventListener("click", () => {
+      element.textContent = this.model.randomHand();
+    });
   }
 }
