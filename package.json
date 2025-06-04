@@ -1,8 +1,14 @@
 {
   "scripts": {
+    "dev": "vite",
     "test": "jest --watchAll",
     "test:coverage": "jest --coverage",
-    "build": "tsc",
-    "clean": "rm -rf dist"
+    "build": "tsc && vite build",
+    "clean": "rm -rf dist",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
   }
 }

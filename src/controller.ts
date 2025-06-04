@@ -1,4 +1,4 @@
-import { Model } from "./model.js";
+import { Model } from "./model";
 
 export class Controller {
   private model: Model;
@@ -6,6 +6,7 @@ export class Controller {
   constructor() {
     this.model = new Model();
   }
+
   // test
   public callRandomHand(element: HTMLElement) {
     element.addEventListener("click", () => {
