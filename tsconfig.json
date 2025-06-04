@@ -1,12 +1,17 @@
 {
   "compilerOptions": {
-    "target": "es2016",        // コンパイル後のJavaScriptバージョン
-    "module": "commonjs",      // モジュールシステムの種類
-    "strict": true,           // 厳格な型チェックを有効化
-    "esModuleInterop": true,  // import/exportの相互運用性を向上
-    "skipLibCheck": true,     // 型定義ファイルの型チェックをスキップ
-    "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字を厳格にチェック
-    "outDir": "./dist",       // コンパイル後のファイル出力先
-    "rootDir": "./src"        // ソースコードのルートディレクトリ
-  }
+    "target": "es2020",                  // モダンブラウザ向けで問題なし
+    "module": "es2020",                  // ESモジュールを使う（CommonJSから変更）
+    "moduleResolution": "bundler",       // import解決に柔軟（NodeNextでもOK）
+    "strict": true,                      // 厳格な型チェック
+    "esModuleInterop": true,             // import/exportの相互運用性を向上
+    "skipLibCheck": true,                // 型定義のチェックをスキップ
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字チェック
+    "outDir": "./dist",                  // 出力先
+    "rootDir": "./src",                  // ソース元
+    "allowJs": false,                    // JSはビルド対象外（TSだけ使うなら）
+    "noEmitOnError": true                // エラーがあると出力しない
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

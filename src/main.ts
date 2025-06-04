@@ -1,18 +1,3 @@
-'use strict';
+import { View } from './view.js';
 
-export const cpuHand = () => {
-  return true;
-}
-
-export const playerHand = (playerHandIndex : number) => {
-  return true;
-}
-
-export const fightResult = (cpuHandIndex : number,playerHandIndex : number) => {
-  return true;
-}
-
-export const countUpResult = (resultIndex : number) => {
-  return true;
-}
-
+new View(); // アプリ起動

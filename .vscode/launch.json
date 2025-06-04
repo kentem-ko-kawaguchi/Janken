@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+    {
+      "name": "Debug Jest Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/jest/bin/jest.js",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "windows": {
+        "program": "${workspaceFolder}\\node_modules\\jest\\bin\\jest.js"
+      },
+    },
+    {
+      "name": "Debug App",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://127.0.0.1:5500/",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "skipFiles": ["<node_internals>/**"],
+      "trace": true
+    }
+  ]
+}
+ 
