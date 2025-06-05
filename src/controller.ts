@@ -1,6 +1,7 @@
 import { Model } from "./model/model";
 import { Consts } from "./Consts/consts";
 import { View } from "./view";
+import { hands } from "./Consts/hands";
 
 export class Controller {
   private model: Model;
@@ -8,37 +9,24 @@ export class Controller {
 
   constructor(view:View) {
     this.model = new Model();
-    this.view = new View();
+    this.view = view;
   }
 
   public janken(
     handButtons: HTMLElement[],
-    cpuHandDisplay: HTMLElement,
-    playerHandDisplay: HTMLElement,
-    resultDisplay: HTMLElement,
-    resultTable: HTMLElement[]
   ) {
     //各ハンドボタンのイベントハンドラーの作成
     handButtons.forEach((handButton, index) => {
       handButton.addEventListener("click", () => {
-        // 自分の手の表示
-        const playerHand = this.searchHand(index);
-        this.view.ShowPlayerHand(playerHand);
-
-        // randomの相手の手の表示
+        const playerHand = index as hands;
         const cpuHand = this.model.randomHand();
-        cpuHandDisplay.textContent = cpuHand;
-
-        // 結果の更新
         const result = this.model.returnResult(playerHand, cpuHand);
-        const resultText = Consts.resultMap[result];
-        resultDisplay.textContent = resultText;
 
-        // 結果表の更新
-        const resultIndex = this.model.returnResultIndex(resultText);
-        const resultId = resultTable[resultIndex];
-        const resultCount = parseInt(resultId.textContent!);
-        resultId.textContent = (resultCount + 1).toString();
+        // Viewにすべて任せる
+        this.view.showPlayerHand(playerHand);
+        this.view.showCpuHand(cpuHand);
+        this.view.showResult(result);
+        this.view.updateResultCount(result);
       });
     });
   }

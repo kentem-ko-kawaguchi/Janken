@@ -6,23 +6,22 @@ export class Model {
 
 
   //ランダムな手の絵文字を返すメソッド
-  public randomHand(): string {
+  public randomHand(): hands {
     const randomIndex: number = Math.floor(
       Math.random() * Consts.handImages.length
     );
-    const randomHand: string = Consts.handImages[randomIndex];
 
-    return randomHand;
+    return randomIndex as hands;
   }
 
   //じゃんけんの結果を返すメソッド
-  public returnResult(playerHand: string, cpuHand: string): gameResult {
+  public returnResult(playerHand: hands, cpuHand: hands): gameResult {
     if (playerHand === cpuHand) return gameResult.draw;
 
     const isWin =
-      (playerHand === Consts.guu && cpuHand === Consts.tyoki) ||
-      (playerHand === Consts.tyoki && cpuHand === Consts.paa) ||
-      (playerHand === Consts.paa && cpuHand === Consts.guu);
+      (playerHand === hands.guu && cpuHand === hands.tyoki) ||
+      (playerHand === hands.tyoki && cpuHand === hands.paa) ||
+      (playerHand === hands.paa && cpuHand === hands.guu);
 
     return isWin ? gameResult.win : gameResult.lose;
   }
