@@ -27,6 +27,9 @@ export class View {
 
     this.controller = new Controller();
 
+    //TODO 一時コメントアウト
+        // this.controller.janken(this.handButtons,this.cpuHandDisplay, this.playerHandDisplay,this.resultDisplay ,this.resultTable);
+
     //test
     this.jankenButton = document.getElementById("start")!;
     this.controller.callRandomHand(this.jankenButton);
