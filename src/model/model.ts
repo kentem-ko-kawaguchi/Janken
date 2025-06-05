@@ -3,8 +3,6 @@ import { gameResult } from "../Consts/gameResult";
 import { hands } from "../Consts/hands";
 
 export class Model {
-
-
   //ランダムな手の絵文字を返すメソッド
   public randomHand(): hands {
     const randomIndex: number = Math.floor(
@@ -24,11 +22,5 @@ export class Model {
       (playerHand === hands.paa && cpuHand === hands.guu);
 
     return isWin ? gameResult.win : gameResult.lose;
-  }
-
-  //じゃんけん結果のカウントの更新
-  public returnResultIndex(result: string): number {
-    const resultIndex = Consts.resultTableMap[result];
-    return resultIndex;
   }
 }

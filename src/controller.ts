@@ -1,5 +1,4 @@
 import { Model } from "./model/model";
-import { Consts } from "./Consts/consts";
 import { View } from "./view";
 import { hands } from "./Consts/hands";
 
@@ -29,12 +28,5 @@ export class Controller {
         this.view.updateResultCount(result);
       });
     });
-  }
-
-    //指定されたindexの手の絵文字を返すメソッド
-  public searchHand(playerHandIndex: number): string {
-    const selectHand: string = Consts.handImages[playerHandIndex];
-
-    return selectHand;
   }
 }
