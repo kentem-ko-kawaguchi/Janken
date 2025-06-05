@@ -1,17 +1,4 @@
 export class Model {
-
-  private hands = [
-    '✊',
-    '✌',
-    '✋',
-  ];
-
-    private resultMap: { [key: string]: number } = {
-    '勝ち': 0,
-    '負け': 1,
-    '引き分け': 2,
-  };
-  
   
   //指定されたindexの手の絵文字を返すメソッド
   public searchHand(playerHandIndex : number) : string{
