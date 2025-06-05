@@ -26,7 +26,7 @@ export class View {
       document.getElementById("paa")!,
     ];
 
-    this.controller = new Controller();
+    this.controller = new Controller(this);
 
     this.controller.janken(
       this.handButtons,
@@ -37,4 +37,9 @@ export class View {
     );
 
   }
+
+  public ShowPlayerHand(playerHand : string){
+    this.playerHandDisplay.textContent = playerHand;
+  }
+
 }
