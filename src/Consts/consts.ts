@@ -18,7 +18,7 @@ export class Consts {
   public static loseText: string = "負け";
   public static drawText: string = "引き分け";
 
-  // 結果マップ（インスタンスプロパティなので new Consts() が必要）
+  // 結果マップ
   public static resultMap: { [key: string]: number } = {
     [Consts.winText]: gameResult.win,
     [Consts.loseText]: gameResult.lose,

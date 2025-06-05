@@ -37,11 +37,4 @@ export class Controller {
       });
     });
   }
-
-  // test
-  public callRandomHand(element: HTMLElement) {
-    element.addEventListener("click", () => {
-      element.textContent = this.model.randomHand();
-    });
-  }
 }

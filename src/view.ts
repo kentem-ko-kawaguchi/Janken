@@ -9,11 +9,14 @@ export class View {
   private playerHandDisplay: HTMLElement;
 
   constructor() {
+    //結果表の取得
     this.resultTable = [
       document.getElementById("win")!,
       document.getElementById("lose")!,
       document.getElementById("draw")!,
     ];
+
+    //
     this.resultDisplay = document.getElementById("result")!;
     this.cpuHandDisplay = document.getElementById("cpuHand")!;
     this.playerHandDisplay = document.getElementById("playerHand")!;
