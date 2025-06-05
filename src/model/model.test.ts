@@ -1,7 +1,7 @@
 import { Model } from "./model";
-import { Consts} from "./model/consts";
-import { gameResult } from "./model/gameResult";
-import { hands } from "./model/hands";
+import { Consts} from "../Consts/consts";
+import { gameResult } from "../Consts/gameResult";
+import { hands } from "../Consts/hands";
 
 describe("Janken", () => {
   const model = new Model();
