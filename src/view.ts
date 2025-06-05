@@ -7,15 +7,16 @@ export class View {
   private resultDisplay: HTMLElement;
   private cpuHandDisplay: HTMLElement;
   private playerHandDisplay: HTMLElement;
-  //test
-  private jankenButton: HTMLElement;
 
   constructor() {
+    //結果表の取得
     this.resultTable = [
       document.getElementById("win")!,
       document.getElementById("lose")!,
       document.getElementById("draw")!,
     ];
+
+    //
     this.resultDisplay = document.getElementById("result")!;
     this.cpuHandDisplay = document.getElementById("cpuHand")!;
     this.playerHandDisplay = document.getElementById("playerHand")!;
@@ -27,17 +28,13 @@ export class View {
 
     this.controller = new Controller();
 
-    // NOTE コミットの為一時コメント化
-    // this.controller.janken(
-    //   this.handButtons,
-    //   this.cpuHandDisplay,
-    //   this.playerHandDisplay,
-    //   this.resultDisplay,
-    //   this.resultTable
-    // );
+    this.controller.janken(
+      this.handButtons,
+      this.cpuHandDisplay,
+      this.playerHandDisplay,
+      this.resultDisplay,
+      this.resultTable
+    );
 
-    //test
-    this.jankenButton = document.getElementById("start")!;
-    this.controller.callRandomHand(this.jankenButton);
   }
 }

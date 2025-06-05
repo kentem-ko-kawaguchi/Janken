@@ -1,4 +1,4 @@
-import { Model } from "./model";
+import { Model } from "./model/model";
 
 export class Controller {
   private model: Model;
@@ -35,13 +35,6 @@ export class Controller {
       const resultCount = parseInt(resultId.textContent!);
       resultId.textContent = (resultCount + 1).toString();
       });
-    });
-  }
-
-  // test
-  public callRandomHand(element: HTMLElement) {
-    element.addEventListener("click", () => {
-      element.textContent = this.model.randomHand();
     });
   }
 }

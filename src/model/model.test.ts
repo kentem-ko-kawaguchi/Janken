@@ -1,14 +1,12 @@
 import { Model } from "./model";
-import { Consts} from "./model/consts";
-import { gameResult } from "./model/gameResult";
-import { hands } from "./model/hands";
+import { Consts} from "../Consts/consts";
+import { gameResult } from "../Consts/gameResult";
+import { hands } from "../Consts/hands";
 
 describe("Janken", () => {
   const model = new Model();
 
-  // ---------------------------
   // searchHandのテスト
-  // ---------------------------
   describe("searchHand - プレイヤーの手を取得するメソッド", () => {
     test("インデックス0で ✊ を返す", () => {
       expect(model.searchHand(hands.guu)).toBe(Consts.guu);
@@ -21,9 +19,7 @@ describe("Janken", () => {
     });
   });
 
-  // ---------------------------
   // randomHandのテスト
-  // ---------------------------
   describe("randomHand - CPUの手をランダムで取得するメソッド", () => {
     afterEach(() => {
       jest.restoreAllMocks(); // モックを元に戻す
@@ -45,9 +41,7 @@ describe("Janken", () => {
     });
   });
 
-  // ---------------------------
   // returnResultのテスト
-  // ---------------------------
   describe("returnResult - じゃんけんの勝敗を返すメソッド", () => {
     describe("プレイヤーの手が ✊ の場合", () => {
       test("CPUが ✊ → 引き分け", () => {
@@ -86,9 +80,7 @@ describe("Janken", () => {
     });
   });
 
-  // ---------------------------
   // returnResultIndexのテスト
-  // ---------------------------
   describe("returnResultIndex - 結果に応じたインデックスを返すメソッド", () => {
     test("勝ち → 0", () => {
       expect(model.returnResultIndex(Consts.winText)).toBe(gameResult.win);
