@@ -1,39 +1,35 @@
+// Controller.ts
 import { Model } from "./model/model";
+import { View } from "./view";
 
 export class Controller {
   private model: Model;
+  private view: View;
 
   constructor() {
     this.model = new Model();
+    this.view = new View();
   }
 
-  public janken(
-    handButtons: HTMLElement[],
-    cpuHandDisplay: HTMLElement,
-    playerHandDisplay: HTMLElement,
-    resultDisplay: HTMLElement,
-    resultTable: HTMLElement[]
-  ) {
-    //各ハンドボタンのイベントハンドラーの作成
-    handButtons.forEach((handButton, index) => {
+  public janken() {
+    const handButtons = this.view.getHandButtons();
+
+    handButtons.forEach((handButton, playerHandIndex) => {
       handButton.addEventListener("click", () => {
-        // 自分の手の表示
-        const playerHand = this.model.searchHand(index);
-        playerHandDisplay.textContent = playerHand;
+        //プレイヤーハンドの更新機能呼び出し
+        this.view.UpdatePlayerHand(playerHandIndex);
+        
+        //CPUハンドの更新機能呼び出し
+        const cpuHandIndex = this.model.randomHandIndex();
+        this.view.UpdateCpuHand(cpuHandIndex)
 
-        // randomの相手の手の表示
-        const cpuHand = this.model.randomHand();
-        cpuHandDisplay.textContent = cpuHand;
+        const resultIndex = this.model.returnResult(playerHandIndex, cpuHandIndex);
 
-        // 結果の更新
-        const result = this.model.returnResult(playerHand,cpuHand);
-        resultDisplay.textContent = result;
+        //勝敗結果の更新機能呼び出し
+        this.view.UpdateJankenResult(resultIndex);
 
-      // 結果表の更新
-      const resultIndex = this.model.returnResultIndex(result);
-      const resultId = resultTable[resultIndex]
-      const resultCount = parseInt(resultId.textContent!);
-      resultId.textContent = (resultCount + 1).toString();
+        //結果テーブル更新機能呼び出し
+        this.view.UpdateJankenResultTable(resultIndex);
       });
     });
   }
