@@ -1,5 +1,4 @@
 // View.ts
-import { Controller } from "./controller";
 import { Consts } from "./Consts/consts";
 
 export class View {

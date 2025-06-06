@@ -1,5 +1,4 @@
 import { Model } from "./model";
-import { Consts } from "../Consts/consts";
 import { gameResultIndex } from "../Consts/gameResult";
 import { handsIndex } from "../Consts/hands";
 
