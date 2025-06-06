@@ -1,36 +1,30 @@
-import { Consts } from "../Consts/consts";
+import { gameResultIndex } from "../Consts/gameResult";
+import { handsIndex } from "../Consts/hands";
 
 export class Model {
-  //指定されたindexの手の絵文字を返すメソッド
-  public searchHand(playerHandIndex: number): string {
-    const selectHand: string = Consts.handImages[playerHandIndex];
-
-    return selectHand;
-  }
-
+  
   //ランダムな手の絵文字を返すメソッド
-  public randomHand(): string {
-    const randomIndex: number = Math.floor(Math.random() * Consts.handImages.length);
-    const randomHand: string = Consts.handImages[randomIndex];
-    
-    return randomHand;
+  public randomHandIndex(): number {
+    const randomHandIndex: number = Math.floor(
+      Math.random() *
+        Object.values(handsIndex).filter((value) => typeof value === "number")
+          .length
+    );
+
+    return randomHandIndex;
   }
 
   //じゃんけんの結果を返すメソッド
-  public returnResult(playerHand: string, cpuHand: string): string {
-    if (playerHand === cpuHand) return Consts.drawText;
+  public returnResult(playerHandIndex: number, cpuHandIndex: number): number {
+    if (playerHandIndex === cpuHandIndex) return gameResultIndex.draw;
 
     const isWin =
-      (playerHand === Consts.guu && cpuHand === Consts.tyoki) ||
-      (playerHand === Consts.tyoki && cpuHand === Consts.paa) ||
-      (playerHand === Consts.paa && cpuHand === Consts.guu);
+      (playerHandIndex === handsIndex.guu &&
+        cpuHandIndex === handsIndex.tyoki) ||
+      (playerHandIndex === handsIndex.tyoki &&
+        cpuHandIndex === handsIndex.paa) ||
+      (playerHandIndex === handsIndex.paa && cpuHandIndex === handsIndex.guu);
 
-    return isWin ? Consts.winText : Consts.loseText;
-  }
-
-  //じゃんけん結果のカウントの更新
-  public returnResultIndex(result: string): number {
-    const resultIndex = Consts.resultMap[result];
-    return resultIndex;
+    return isWin ? gameResultIndex.win : gameResultIndex.lose;
   }
 }

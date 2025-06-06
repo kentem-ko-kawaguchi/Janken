@@ -1,4 +1,4 @@
-import { gameResult } from "./gameResult";
+import { gameResultIndex } from "./gameResult";
 
 export class Consts {
   // 絵文字定義
@@ -18,10 +18,9 @@ export class Consts {
   public static loseText: string = "負け";
   public static drawText: string = "引き分け";
 
-  // 結果マップ
-  public static resultMap: { [key: string]: number } = {
-    [Consts.winText]: gameResult.win,
-    [Consts.loseText]: gameResult.lose,
-    [Consts.drawText]: gameResult.draw,
-  };
+  public static resultMap: { [key: number]: string } = {
+  [gameResultIndex.win]: Consts.winText,
+  [gameResultIndex.lose]: Consts.loseText,
+  [gameResultIndex.draw]: Consts.drawText,
+};
 }

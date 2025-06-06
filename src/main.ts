@@ -1,3 +1,4 @@
-import { View } from './view';
+import { Controller } from "./controller";
 
-new View(); // アプリ起動
+const app = new Controller();
+app.janken();

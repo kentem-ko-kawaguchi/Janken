@@ -7,7 +7,7 @@
     "esModuleInterop": true,             // import/exportの相互運用性を向上
     "skipLibCheck": true,                // 型定義のチェックをスキップ
     "forceConsistentCasingInFileNames": true, // ファイル名の大文字小文字チェック
-    // "outDir": "./dist",                  // 出力先
+    "outDir": "./dist",                  // 出力先
     "rootDir": "./src",                  // ソース元
     "allowJs": false,                    // JSはビルド対象外（TSだけ使うなら）
     "noEmitOnError": true                // エラーがあると出力しない
