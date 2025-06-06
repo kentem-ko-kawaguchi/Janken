@@ -3,7 +3,6 @@ import { Consts } from "./Consts/consts";
 
 export class View {
   constructor() {
-    // DOM要素の取得
     this.init();
   }
 
@@ -13,6 +12,7 @@ export class View {
   private resultDisplay!: HTMLElement;
   private resultTable!: HTMLElement[];
 
+  // DOM要素の取得
   private init() {
     this.handButtons = [
       document.getElementById("guu")!,
@@ -29,17 +29,17 @@ export class View {
     ];
   }
 
-  public getHandButtons() {
+  public getHandButtons(): HTMLElement[] {
     return this.handButtons;
   }
 
   //画面情報の更新(プレイヤーハンドの更新)
-  public UpdatePlayerHand(playerHandIndex: number) {
+  public UpdatePlayerHand(playerHandIndex: number): void {
     this.playerHandDisplay.textContent = Consts.handImages[playerHandIndex];
   }
 
   //画面情報の更新(CPUハンドの更新)
-  public UpdateCpuHand(cpuHandIndex: number) {
+  public UpdateCpuHand(cpuHandIndex: number): void {
     this.cpuHandDisplay.textContent = Consts.handImages[cpuHandIndex];
   }
 
@@ -50,7 +50,7 @@ export class View {
 
   //画面情報の更新(結果テーブルの更新)
   public UpdateJankenResultTable(resultIndex: number): void {
-    let selectResultCount = this.resultTable[resultIndex].textContent!;
+    const selectResultCount = this.resultTable[resultIndex].textContent!;
     const newResultCount: number = parseInt(selectResultCount) + 1;
     this.resultTable[resultIndex].textContent = newResultCount.toString();
   }

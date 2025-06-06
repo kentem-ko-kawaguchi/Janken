@@ -8,7 +8,7 @@ export class Controller {
 
   constructor() {
     this.model = new Model();
-    this.view = new View();  // ControllerがViewを作り、自分を渡す
+    this.view = new View();
   }
 
   public janken() {

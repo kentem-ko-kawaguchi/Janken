@@ -6,7 +6,7 @@ describe("Janken", () => {
   const model = new Model();
 
   // randomHandのテスト
-  describe("randomHand - CPUの手をランダムで取得するメソッド", () => {
+  describe("randomHand - CPUの手のindexをランダムで取得するメソッド", () => {
     afterEach(() => {
       jest.restoreAllMocks(); // モックを元に戻す
     });
@@ -28,7 +28,7 @@ describe("Janken", () => {
   });
 
   // returnResultのテスト
-  describe("returnResult - じゃんけんの勝敗を返すメソッド", () => {
+  describe("returnResult - じゃんけんの勝敗のindexを返すメソッド", () => {
     describe("プレイヤーの手が 0(✊) の場合", () => {
       test("CPUが 0(✊) → 2(引き分け)", () => {
         expect(model.returnResult(handsIndex.guu, handsIndex.guu)).toBe(
